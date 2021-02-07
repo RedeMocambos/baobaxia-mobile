@@ -10,19 +10,22 @@
     </v-app-bar>
 
     <v-main class="mt-10">
-      <Login/>
+      <!-- <Login/> -->
+      <router-view class="view"></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
 import Login from './components/Login';
+import Grid from './components/Grid';
 
 export default {
   name: 'App',
 
   components: {
     Login,
+    Grid,
   },
 
   data: () => ({

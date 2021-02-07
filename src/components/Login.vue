@@ -59,6 +59,10 @@ export default {
       repository: 'mocambos'
     }
   },
+  created() {
+    // TODO: get mucuas list
+    // now only use mucua luizamahin
+  },
   methods: {
     login() {
       if(typeof(cordova) == "object") {
@@ -70,13 +74,14 @@ export default {
           "password": this.password
         }, {
           // headers
-        }, function(response) {
+        }, (response) => {
           const data = JSON.parse(response.data);
           localStorage.setItem('token', data.toke);
           localStorage.setItem('username', data.username);
+          // TODO: add username, mucua, repository ...
           // go to user page? go home? ...
           this.$router.push('/grid'); // profile, mucua, ...
-        }, function(error) {
+        }, (error) => {
           console.log(error);
         });
       } else {
