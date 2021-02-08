@@ -1,7 +1,7 @@
 {
   "name": "baobaxia-app",
-  "version": "1.0.0",
-  "private": true,
+  "version": "1.0.2",
+  "private": false,
   "description": "Baobaxia mobile",
   "author": "Maurilio Atila <cabelotaina@gmail.com>",
   "scripts": {

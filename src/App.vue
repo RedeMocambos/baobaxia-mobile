@@ -10,7 +10,6 @@
     </v-app-bar>
 
     <v-main class="mt-10">
-      <!-- <Login/> -->
       <router-view class="view"></router-view>
     </v-main>
   </v-app>
