@@ -4,20 +4,6 @@
 
 Projeto mobile para o baobaxia
 
-Funcionalidades que queremos adicionar:
-
-- [x] grid com todos os conteudos
-- [ ] filtro de busca de conteudos
-- [ ] exibir videos e tocar audio
-- [ ] ouvir radio e manter navegação
-- [ ] publicar conteudos
-- [ ] gravador de audio e subir arquivo
-- [ ] colocar splash
-- [ ] loading na pagina de arquivos
-- [ ] logo
-- [ ] gravar com a camera e subir arquivo
-- [ ] icone
-
 ## Build Setup
 
 ``` bash
