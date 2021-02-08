@@ -2,7 +2,7 @@
 
 > O projeto mobile para o baobaxia é um app que esta usando como referencia a mucua do projeto herbert de souza https://luizamahin.mocambos.net/ que possui um conjunto de videos voltados aos estudantes de cursinho pré vestibular. No entanto existem diversas outras mucuas em diversas comunidades e aos poucos o sistema vai se adaptar conectar com qualquer mucua e fazer operações como exibir um video e tocar um audio, apresentar um PDF, um texto, realizar o login de usuário, subir um video ou audio gravado no celular, deixar anotações no app sobre um video (não sincronizadas para a mucua e apenas de uso pessoal).
 
-![Primeiro print do app mostrando um grid da página inicial contendo 2 videos aulas do professor de literatura Nicolas Claro](doc/prints/print-baobaxia-alpha.png?raw=true "Title" =300x)
+![Primeiro print do app mostrando um grid da página inicial contendo 2 videos aulas do professor de literatura Nicolas Claro](doc/prints/print-baobaxia-alpha.png?raw=true =300x "Title")
 
 ## Build Setup
 
