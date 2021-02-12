@@ -42,8 +42,8 @@
 export default {
   data() {
     return {
-      user: 'cabelotaina',
-      password: 'mauA.,59',
+      user: '',
+      password: '',
       mucuas: [
         {
           text: 'Luiza Mahin',
@@ -76,7 +76,7 @@ export default {
           // headers
         }, (response) => {
           const data = JSON.parse(response.data);
-          localStorage.setItem('token', data.toke);
+          localStorage.setItem('token', data.token);
           localStorage.setItem('username', data.username);
           // TODO: add username, mucua, repository ...
           // go to user page? go home? ...
