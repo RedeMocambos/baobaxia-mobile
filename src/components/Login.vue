@@ -62,6 +62,22 @@ export default {
   created() {
     // TODO: get mucuas list
     // now only use mucua luizamahin
+
+    // fetch("https://luizamahin.mocambos.net/api/mocambos/mucuas", {
+    //   "headers": {
+    //     "accept": "application/json, text/javascript, */*; q=0.01",
+    //     "authorization": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhYmVsb3RhaW5hQGx1aXphbWFoaW4ubW9jYW1ib3MubmV0Iiwib3JpZ19pYXQiOjE2MTMxNzIwMjgsInVzZXJfaWQiOjIwOCwiZW1haWwiOiJjYWJlbG90YWluYUBsdWl6YW1haGluLm1vY2FtYm9zLm5ldCIsImV4cCI6MTYxMzM4ODAyOH0.fqzivXPoTLUHghmtd17u6nzTXJNVy-5c3Tg-izM_FJo",
+    //     "sec-ch-ua": "\"Chromium\";v=\"88\", \"Google Chrome\";v=\"88\", \";Not A Brand\";v=\"99\"",
+    //     "sec-ch-ua-mobile": "?0",
+    //     "x-requested-with": "XMLHttpRequest"
+    //   },
+    //   "referrer": "https://luizamahin.mocambos.net/",
+    //   "referrerPolicy": "strict-origin-when-cross-origin",
+    //   "body": null,
+    //   "method": "GET",
+    //   "mode": "cors",
+    //   "credentials": "include"
+    // });
   },
   methods: {
     login() {
