@@ -14,6 +14,9 @@
       <v-btn icon>
         <v-icon color="white">mdi-magnify</v-icon>
       </v-btn>
+      <v-btn icon to="/login">
+        <v-icon color="white">mdi-login</v-icon>
+      </v-btn>
     </v-app-bar>
 
     <!-- algumas coisas que podemos modificar no menu -->
@@ -37,9 +40,10 @@
         <v-list-item link>
           <v-list-item-content>
             <v-list-item-title class="title">
-              {{username}}
+              <!-- isso pode dar pau melhor colocar dentro de um try catch em uma função -->
+              {{username.split('@')[0]}}
             </v-list-item-title>
-            <v-list-item-subtitle>sandra_a88@gmail.com</v-list-item-subtitle>
+            <v-list-item-subtitle>{{username}}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -51,11 +55,12 @@
           v-model="group"
           active-class="deep-purple--text text--accent-4"
         >
-          <v-list-item>
+          <!-- acredito que os dados que aparecem acima são melhores do que ter uma página com o perfil do usuario ao menos agora -->
+          <!-- <v-list-item>
             <v-list-item-title>Mocambola</v-list-item-title>
-          </v-list-item>
+          </v-list-item> -->
 
-          <v-list-item>
+          <v-list-item @click="camera()">
             <v-list-item-title>Camera</v-list-item-title>
           </v-list-item>
 
@@ -108,5 +113,19 @@ export default {
       this.drawer = false
     },
   },
+
+  methods: {
+    cameraSuccess() {
+      console.log('sucesso')
+    },
+    cameraError() {
+      console.log('error')
+    },
+    camera() {
+      // https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-camera/#module_camera.CameraOptions
+      var cameraOptions = {};
+      navigator.camera.getPicture(this.cameraSuccess, this.cameraError, cameraOptions)
+    }
+  }
 };
 </script>

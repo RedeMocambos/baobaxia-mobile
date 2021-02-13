@@ -8,7 +8,10 @@
         class="d-flex child-flex"
         cols="12"
       >
-        <video controls :src="`${mucua.urlBase}${media.url}`"></video>
+        <video controls poster="https://static.dicionariodesimbolos.com.br/upload/5c/57/sankofa-significado-desse-simbolo-africano-1_xl.jpeg">
+            <source :src="`${mucua.urlBase}${media.url}`" type="video/mp4">
+            A tag de video do html não é suportada. Por favor baixe o vídeo. <a :href="`${mucua.urlBase}${media.url}`">aqui</a>.
+        </video>
       </v-col>
       <v-col>
         <p><strong>{{media.name}}</strong></p>
@@ -29,24 +32,26 @@ export default {
   },
   mounted() {
     if(typeof(cordova) == "object") {
-      // get via route or store or via 
-      const urlBase = 'https://luizamahin.mocambos.net';
-      const repository = 'mocambos';
-      cordova.plugin.http.get(`${urlBase}/api/${repository}/luizamahin/bbx/search/`, {
-        // "username": this.user,
-        // "mucua": this.mucua.value,
-        // "repository": this.repository,
-        // "password": this.password
-      }, {
-        // headers
-      }, (response) => {
-        const medias = JSON.parse(response.data);
-        console.log(medias)
-        this.medias = medias
-        // go to user page? go home? ...
-      }, (error) => {
-        console.log(error);
-      });
+      // get via route or store or via
+
+      let grid = setInterval(function() {
+        if(cordova.plugin.http) {
+          const urlBase = 'https://luizamahin.mocambos.net';
+          const repository = 'mocambos';
+          cordova.plugin.http.get(`${urlBase}/api/${repository}/luizamahin/bbx/search/`, {}, {}, 
+            (response) => {
+              const medias = JSON.parse(response.data);
+              console.log(medias)
+              
+              this.medias = medias
+              
+              // go to user page? go home? ...
+            }, (error) => {
+              console.log(error)
+            });
+          clearInterval(grid)
+        }
+      }.bind(this), 500)
     }
   }
 }

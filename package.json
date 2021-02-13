@@ -10,6 +10,7 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "cordova-plugin-camera": "5.0.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuetify": "^2.4.3"
@@ -71,7 +72,10 @@
     ],
     "plugins": {
       "cordova-plugin-advanced-http": {},
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-camera": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      }
     }
   },
   "engines": {

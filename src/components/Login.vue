@@ -26,13 +26,15 @@
           v-model="mucua"
         ></v-select>
         <v-btn 
+          enabled="!clicked"
           dark
           block
           color="black"
           x-large
           @click="login"
         >
-          Entrar
+          <span v-if="!clicked">Entrar</span>
+          <v-icon v-if="clicked">fas fa-circle-notch fa-spin</v-icon>
         </v-btn>
       </v-col>
     </v-row>
@@ -56,7 +58,8 @@ export default {
         value: 'luizamahin',
         urlBase: 'https://luizamahin.mocambos.net'
       },
-      repository: 'mocambos'
+      repository: 'mocambos',
+      clicked: false,
     }
   },
   created() {
@@ -81,6 +84,7 @@ export default {
   },
   methods: {
     login() {
+      this.clicked = true;
       if(typeof(cordova) == "object") {
         // You're on a mobile device
         cordova.plugin.http.post(`${this.mucua.urlBase}/api/${this.repository}/baobaxia/mocambola/login`, {
