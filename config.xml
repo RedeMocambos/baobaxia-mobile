@@ -22,4 +22,5 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <plugin name="cordova-plugin-advanced-http" spec="https://github.com/silkimen/cordova-plugin-advanced-http.git" />
 </widget>
