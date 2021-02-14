@@ -9,7 +9,7 @@
         </p>
         <v-text-field
           v-model="user"
-          placeholder="Usuário"
+          placeholder="Mocambola"
           outlined
         >
         </v-text-field>
@@ -34,6 +34,7 @@
           @click="login"
         >
           <span v-if="!clicked">Entrar</span>
+          <!-- TODO: trocar isso pelo loader que usamos no grid -->
           <v-icon v-if="clicked">fas fa-circle-notch fa-spin</v-icon>
         </v-btn>
       </v-col>

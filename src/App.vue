@@ -1,39 +1,95 @@
 <template>
   <v-app>
+    <!-- trazer esta imagem para a pasta assets -->
     <v-app-bar
       app
       color="black"
       dark
+      src="https://baobaxia.mocambos.net/images/login-home-header.png"
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" color="white"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" color="deep-orange darken-2"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Baobáxia | Rede Mocambos</v-toolbar-title>
+      <!-- por hora vou remove ( | Rede Mocambos) e deixar apenas baobaxia depois vou trocar pelo logo SVG -->
+      <v-toolbar-title>Baobáxia</v-toolbar-title>
       
       <v-spacer></v-spacer>
 
       <v-btn icon>
-        <v-icon color="white">mdi-magnify</v-icon>
+        <v-icon color="white"  @click.stop="search = !search">mdi-magnify</v-icon>
       </v-btn>
       <v-btn icon to="/login">
         <v-icon color="white">mdi-login</v-icon>
       </v-btn>
     </v-app-bar>
 
-    <!-- algumas coisas que podemos modificar no menu -->
 
+    <!-- vamos colocar uma lista das mucuas para que o mocambola possa mudar a mucua atual -->
+
+    <v-navigation-drawer
+      app
+      bottom
+      v-model="search"
+      temporary
+    >
+      <v-row align="center" justify="center">
+        <!-- BUG: não sei porque mas não esta abrindo mais apenas fica escura a tela -->
+        <v-col>
+          <h1>Filtro de medias</h1>
+          <p>Em construção</p>
+        </v-col>
+      </v-row>
+    </v-navigation-drawer>
+
+    <!-- algumas coisas que podemos modificar no menu -->
     <!-- podemos colocar uma imagem de fundo: src="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg" -->
     <!-- podemos definir se o ocupa a tela todo: width="100%" -->
 
     <v-navigation-drawer
       app
-      absolute
+      bottom
+      v-model="mucuasList"
+      temporary
+    >
+      <v-row>
+        <v-col>
+          <v-list>
+            <v-list-item-group
+              v-model="mucuasGroup"
+              active-class="blue lighten-4"
+            >
+              <!-- <span v-for="mucua in mucuas" :key="mucua.name">
+                <v-list-item @click="changeMucua(mucua)">
+                  <v-list-item-title>{{ mucua.description }}</v-list-item-title>
+                </v-list-item>
+              </span> -->
+
+                <v-list-item>
+                  <v-list-item-title>Abdias (exemplo)</v-list-item-title>
+                </v-list-item>
+
+                <v-list-item>
+                  <v-list-item-title>Luiza Mahin (exemplo)</v-list-item-title>
+                </v-list-item>
+
+                <v-list-item>
+                  <v-list-item-title>... (exemplo)</v-list-item-title>
+                </v-list-item>
+            </v-list-item-group>
+          </v-list>
+        </v-col>
+      </v-row>
+    </v-navigation-drawer>
+
+    <!-- ´menu lateral - abre quando clica no hamburger-->
+    <v-navigation-drawer
+      app
       v-model="drawer"
       temporary
     >
       <v-list v-if="username">
         <v-list-item class="px-2">
           <v-list-item-avatar>
-            <v-img src="https://randomuser.me/api/portraits/women/85.jpg"></v-img>
+            <v-img src="https://baobaxia.mocambos.net/images/logo.png"></v-img>
           </v-list-item-avatar>
         </v-list-item>
 
@@ -47,33 +103,57 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+      <v-divider></v-divider>
       <v-list
         nav
         dense
       >
+
+        <v-list-item two-line>
+          <v-list-item-content @click.stop="mucuasList = !mucuasList; drawer = !drawer">
+            <v-list-item-subtitle>Você esta na mucua:</v-list-item-subtitle>
+            <v-list-item-title class="mb-2 headline" >
+              Luiza Mahin
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
         <v-list-item-group
           v-model="group"
-          active-class="deep-purple--text text--accent-4"
+          active-class="blue lighten-4"
         >
-          <!-- acredito que os dados que aparecem acima são melhores do que ter uma página com o perfil do usuario ao menos agora -->
-          <!-- <v-list-item>
-            <v-list-item-title>Mocambola</v-list-item-title>
-          </v-list-item> -->
+          <v-list-item to="/">
+            <v-list-item-title>Midias da Mucua</v-list-item-title>
+          </v-list-item>
+
+          <!-- TODO: temos que pegar o que a camera retorna e enviar para uma página onde o usuário deve colocar tags... texto etc -->
+          <!-- antes de enviar para a mucua -->
+
+          <v-list-item to="/map">
+            <v-list-item-title>Mapa da Rede</v-list-item-title>
+          </v-list-item>
 
           <v-list-item @click="camera()">
             <v-list-item-title>Camera</v-list-item-title>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Audio</v-list-item-title>
+            <v-list-item-title>Gravar Audio</v-list-item-title>
           </v-list-item>
 
           <v-list-item>
-            <v-list-item-title>Texto</v-list-item-title>
+            <v-list-item-title>Criar um novo texto</v-list-item-title>
           </v-list-item>
 
           <v-list-item>
             <v-list-item-title>Rádio Mocambos</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>TV Tainã</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>Notícias da rede</v-list-item-title>
           </v-list-item>
 
         </v-list-item-group>
@@ -101,20 +181,43 @@ export default {
   data: () => ({
     drawer: false,
     group: null,
-    username: null,
+    search: false,
+    mucuasList: false,
+    mucuasGroup: null,
+    mucuas: [],
+    username: localStorage.getItem('username'),
   }),
 
-  created() {
-    return { username: localStorage.getItem('username') };
+  mounted() {
+      let mucuas = setInterval(function() {
+        console.log('tentando')
+        if(typeof(cordova) == "object") {
+          const urlBase = 'https://luizamahin.mocambos.net';
+          cordova.plugin.http.get(`${urlBase}/api/mocambos/mucuas`, {}, {},
+            (response) => {
+              this.mucuas = JSON.parse(response.data)
+              console.log(this.mucuas)
+            }, (error) => {
+              console.log(error)
+            });
+          clearInterval(mucuas)
+        }
+      }.bind(this), 500)
   },
 
   watch: {
     group () {
       this.drawer = false
     },
+    mucuasGroup () {
+      this.mucuasList = false
+    },
   },
 
   methods: {
+    changeMucua(mucua) {
+      console.log(mucua)
+    },
     cameraSuccess() {
       console.log('sucesso')
     },

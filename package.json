@@ -1,6 +1,6 @@
 {
   "name": "baobaxia-app",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "description": "Baobaxia mobile",
   "author": "Maurilio Atila <cabelotaina@gmail.com>",
@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "cordova-plugin-camera": "5.0.1",
+    "leaflet": "^1.7.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
+    "vue2-leaflet": "^2.6.0",
     "vuetify": "^2.4.3"
   },
   "devDependencies": {

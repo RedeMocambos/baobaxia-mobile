@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="net.mocambos.baobaxia" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="net.mocambos.baobaxia" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>Baobaxia</name>
     <description>
         Baobaxia mobile app
@@ -17,6 +17,9 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+            <application android:usesCleartextTraffic="true" />
+        </edit-config>
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
@@ -34,6 +37,7 @@
             <string>need photo library access to save pictures there</string>
         </edit-config>
     </platform>
+    <preference name="android-minSdkVersion" value="22"/>
     <plugin name="cordova-plugin-advanced-http" spec="https://github.com/silkimen/cordova-plugin-advanced-http.git" />
     <plugin name="cordova-plugin-camera" spec="https://github.com/apache/cordova-plugin-camera.git" />
 </widget>
