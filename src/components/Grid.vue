@@ -22,10 +22,12 @@
         class="d-flex child-flex"
         cols="12"
       >
-        <video playsinline height="180" controls poster="https://static.dicionariodesimbolos.com.br/upload/5c/57/sankofa-significado-desse-simbolo-africano-1_xl.jpeg">
-            <source :src="`${mucua.urlBase}${media.url}`" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+        <!-- <video playsinline height="180" controls poster="https://static.dicionariodesimbolos.com.br/upload/5c/57/sankofa-significado-desse-simbolo-africano-1_xl.jpeg"> -->
+        <video height="180">
+            <source :src="`${mucua.urlBase}${media.url}`" type='video/mp4"' crossorigin="anonymous">
             A tag de video do html não é suportada. Por favor baixe o vídeo. <a :href="`${mucua.urlBase}${media.url}`">aqui</a>.
         </video>
+        <canvas id="my-canvas" width="480" height="270"></canvas>
       </v-col>
       <v-col>
         <p><strong>{{media.name}}</strong></p>
@@ -49,8 +51,6 @@ export default {
   methods: {
     scroll() {
       window.onscroll = () => {
-
-        console.log('vendo se scroll é chamado de vdd')
         let bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight;
 
         if (bottomOfWindow) {

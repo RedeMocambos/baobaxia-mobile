@@ -57,13 +57,13 @@
               v-model="mucuasGroup"
               active-class="blue lighten-4"
             >
-              <!-- <span v-for="mucua in mucuas" :key="mucua.name">
+              <span v-for="mucua in mucuas" :key="mucua.name">
                 <v-list-item @click="changeMucua(mucua)">
                   <v-list-item-title>{{ mucua.description }}</v-list-item-title>
                 </v-list-item>
-              </span> -->
+              </span>
 
-                <v-list-item>
+                <!-- <v-list-item>
                   <v-list-item-title>Abdias (exemplo)</v-list-item-title>
                 </v-list-item>
 
@@ -73,7 +73,7 @@
 
                 <v-list-item>
                   <v-list-item-title>... (exemplo)</v-list-item-title>
-                </v-list-item>
+                </v-list-item> -->
             </v-list-item-group>
           </v-list>
         </v-col>
@@ -156,6 +156,10 @@
             <v-list-item-title>Notícias da rede</v-list-item-title>
           </v-list-item>
 
+          <v-list-item to="/video">
+            <v-list-item-title>Teste de video</v-list-item-title>
+          </v-list-item>
+
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
@@ -190,7 +194,6 @@ export default {
 
   mounted() {
       let mucuas = setInterval(function() {
-        console.log('tentando')
         if(typeof(cordova) == "object") {
           const urlBase = 'https://luizamahin.mocambos.net';
           cordova.plugin.http.get(`${urlBase}/api/mocambos/mucuas`, {}, {},
